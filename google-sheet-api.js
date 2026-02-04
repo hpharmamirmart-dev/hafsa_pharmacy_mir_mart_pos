@@ -131,7 +131,7 @@ async function makeApiRequest(payload, timeout = 20000) {
         const response = await fetch(API_URL, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'text/plain',
             },
             body: JSON.stringify(payload),
             signal: controller.signal,
