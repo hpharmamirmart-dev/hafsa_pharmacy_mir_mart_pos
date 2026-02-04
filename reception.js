@@ -652,7 +652,7 @@ async function completeSaleAndPrintFast() {
         }
 
         const saleData = {
-            order_number: currentOrderNumber,
+            order_number: currentOrderNumber.toString(),
             customer_name: customerName,
             total_items: cart.reduce((sum, item) => sum + item.quantity, 0),
             subtotal: subtotal,

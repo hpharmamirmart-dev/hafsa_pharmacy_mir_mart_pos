@@ -85,7 +85,7 @@ function validateProductData(productData) {
 function validateSaleData(saleData) {
     const errors = [];
 
-    if (!saleData.order_number || saleData.order_number.trim() === '') {
+    if (!saleData.order_number || String(saleData.order_number).trim() === '') {
         errors.push('Order number is required');
     }
 
@@ -540,7 +540,7 @@ window.addSaleV2 = async function (saleData) {
 
         const payload = {
             action: 'addSaleV2',
-            order_number: saleData.order_number.trim(),
+            order_number: String(saleData.order_number).trim(),
             customer_name: saleData.customer_name ? saleData.customer_name.trim() : 'Walk-in Customer',
             total_items: parseInt(saleData.total_items),
             total_amount: parseFloat(saleData.total_amount),
