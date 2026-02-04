@@ -585,7 +585,7 @@ window.addSaleItem = async function (itemData) {
     // Validate required fields
     const errors = [];
 
-    if (!itemData.order_number || itemData.order_number.trim() === '') {
+    if (!itemData.order_number || String(itemData.order_number).trim() === '') {
         errors.push('Order number is required');
     }
     if (!itemData.product_name || itemData.product_name.trim() === '') {
@@ -609,7 +609,7 @@ window.addSaleItem = async function (itemData) {
     try {
         const payload = {
             action: 'addSaleItem',
-            order_number: itemData.order_number.trim(),
+            order_number: String(itemData.order_number).trim(),
             product_name: itemData.product_name.trim(),
             quantity: parseInt(itemData.quantity),
             category: itemData.category ? itemData.category.trim() : '',

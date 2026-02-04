@@ -887,7 +887,7 @@ async function saveSaleToBackendAsync(saleData) {
         // Save sale items
         for (const item of saleData.items) {
             const itemData = {
-                order_number: saleData.order_number,
+                order_number: String(saleData.order_number),
                 product_name: item.product_name,
                 quantity: item.quantity,
                 category: item.category,
