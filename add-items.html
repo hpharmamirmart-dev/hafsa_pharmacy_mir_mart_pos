@@ -471,9 +471,9 @@
 
         // Check for duplicate product
         function checkForDuplicate(productData, excludeProductId = '') {
-            const name = productData.product_name.trim().toLowerCase();
-            const weight = productData.weight.trim().toLowerCase();
-            const unit = productData.unit.trim().toLowerCase();
+            const name = String(productData.product_name || '').trim().toLowerCase();
+            const weight = String(productData.weight || '').trim().toLowerCase();
+            const unit = String(productData.unit || '').trim().toLowerCase();
 
             return allProducts.some(product => {
                 // Skip the product being edited
@@ -481,9 +481,9 @@
                     return false;
                 }
 
-                const existingName = (product.product_name || '').trim().toLowerCase();
-                const existingWeight = (product.weight || '').trim().toLowerCase();
-                const existingUnit = (product.unit || '').trim().toLowerCase();
+                const existingName = String(product.product_name || '').trim().toLowerCase();
+                const existingWeight = String(product.weight || '').trim().toLowerCase();
+                const existingUnit = String(product.unit || '').trim().toLowerCase();
 
                 return existingName === name &&
                     existingWeight === weight &&
